@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { CacheModule, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserController } from './user/user.controller';
@@ -9,6 +9,7 @@ import { BossRaidService } from './boss-raid/boss-raid.service';
 import { BossRaidModule } from './boss-raid/boss-raid.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import * as redisStore from 'cache-manager-ioredis';
 
 @Module({
   imports: [
@@ -22,6 +23,11 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.DB_DATABASENAME,
       entities: [],
       synchronize: true,
+    }),
+    CacheModule.register({
+      store: redisStore,
+      host: process.env.DB_HOST,
+      port: 6379,
     }),
     UserModule,
     BossRaidModule,
