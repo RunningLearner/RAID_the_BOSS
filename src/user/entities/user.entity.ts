@@ -3,8 +3,8 @@ import { BossRaidHistory } from 'src/boss-raid/entities/bossRaidHistory.entitiy'
 
 @Entity('user')
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column({ default: 0 })
   totalScort: number;
