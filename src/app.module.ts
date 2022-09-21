@@ -32,7 +32,7 @@ import * as redisStore from 'cache-manager-ioredis';
     UserModule,
     BossRaidModule,
   ],
-  controllers: [AppController, UserController, BossRaidController],
-  providers: [AppService, UserService, BossRaidService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

@@ -7,7 +7,7 @@ export class User {
   id: number;
 
   @Column({ default: 0 })
-  totalScort: number;
+  totalScore: number;
 
   @OneToMany(() => BossRaidHistory, (bossRaidHistory) => bossRaidHistory.user, {
     cascade: true,
