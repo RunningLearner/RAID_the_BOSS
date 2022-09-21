@@ -10,8 +10,8 @@ import {
 
 @Entity()
 export class BossRaidHistory {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
   score: number;
