@@ -1,5 +1,12 @@
 import { User } from 'src/user/entities/user.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class BossRaidHistory {
@@ -9,10 +16,10 @@ export class BossRaidHistory {
   @Column()
   score: number;
 
-  @Column()
+  @CreateDateColumn()
   enterTime: Date;
 
-  @Column()
+  @UpdateDateColumn()
   endTime: Date;
 
   @Column()
