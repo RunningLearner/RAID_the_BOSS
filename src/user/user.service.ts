@@ -31,4 +31,19 @@ export class UserService {
 
     return user;
   }
+
+  async changeUserScore(userId: number, score: number) {
+    const currentScore = await this.userRepository.findOne({
+      relations: ['bossRaidHistories'],
+      where: { id: userId },
+    });
+    const totalScore = score + currentScore.totalScore;
+    console.log(totalScore);
+    await this.userRepository
+      .createQueryBuilder()
+      .update(User)
+      .set({ totalScore: totalScore })
+      .where({ id: userId })
+      .execute();
+  }
 }

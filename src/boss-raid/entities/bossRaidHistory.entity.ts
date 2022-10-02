@@ -11,9 +11,9 @@ import {
 @Entity()
 export class BossRaidHistory {
   @PrimaryGeneratedColumn()
-  id: number;
+  raidRecordId: number;
 
-  @Column()
+  @Column({ default: 0 })
   score: number;
 
   @CreateDateColumn()
